@@ -1,7 +1,7 @@
 # ng-full-modal
 Probably the best angular responsive modal service...
 
-[demo](https://rawgit.com/thatisuday/ng-full-modal/master/demo/index.html)
+**[demo](https://rawgit.com/thatisuday/ng-full-modal/master/demo/main.html)**
 
 
 ***
