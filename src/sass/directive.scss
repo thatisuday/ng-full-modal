@@ -1,0 +1,74 @@
+@import 'variables';
+
+.nfm-container{
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 6005;
+	overflow-x: hidden;
+	overflow-y: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	align-content: center;
+	flex-wrap: wrap;
+	box-sizing: border-box;
+	transition: all 0.5s;
+
+	&.ng-enter, &.ng-leave{
+		transition:all 0.5s ease-in-out;
+	}
+
+	&.ng-enter,
+	&.ng-leave.ng-leave-active{
+		opacity:0;
+	}
+
+	&.ng-leave,
+	&.ng-enter.ng-enter-active{
+		opacity:1;
+	}
+
+	>.nfm-close{
+		&:before{
+			content: "\00d7";
+		}
+
+		flex: none;
+		position: absolute;
+		right: 20px;
+		top: 10px;
+		display: inline-block;
+		font-size: 30px;
+		line-height: 30px;
+		text-align: center;
+		color: #eee;
+		cursor: pointer;
+		z-index: 5;
+		text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
+		font-style: normal;
+	}
+
+	>.nfm-modal{
+		margin: auto;
+		position: relative;
+		z-index: 3;
+		max-width: 100%;
+		background-color: #fff;
+		padding: 20px 30px;
+	}
+
+	@media screen and (max-width : $screen_sphone){
+		background-color: #fff;
+
+		>.nfm-close{
+			color: #333;
+		}
+
+		>.nfm-modal{
+			width: 100%;
+		}
+	}
+}

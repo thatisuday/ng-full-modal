@@ -1,0 +1,37 @@
+{
+  "name": "ng-full-modal",
+  "version": "1.0.0",
+  "description": "Probably the best angular responsive modal service...",
+  "main": "dist/ng-full-modal.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./demo/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thatisuday/ng-full-modal.git"
+  },
+  "author": "Uday Hiwarale <uhiwarale@gmail.com> (https://github.com/thatisuday)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thatisuday/ng-full-modal/issues"
+  },
+  "homepage": "https://github.com/thatisuday/ng-full-modal#readme",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.0",
+    "express": "^4.15.2",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-babel": "^6.1.2",
+    "gulp-concat": "^2.6.0",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-gzip": "^1.4.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.4"
+  }
+}

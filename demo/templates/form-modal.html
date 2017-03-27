@@ -1,0 +1,19 @@
+<h1>{{msg}}</h1>
+
+<form class="ui small form" ng-submit="done()">
+	<div class="field">
+		<label>Username</label>
+		<input type="text" name="name" ng-model="formData.name" />
+	</div>
+
+	<div class="field">
+		<label>Password</label>
+		<input type="password" name="password" ng-model="formData.password" />
+	</div>
+
+	<div class="field">
+		<button class="ui small green button">Submit</button>
+		<div class="ui small red button" type="button" ng-click="hideModal()">Hide Modal</div>
+		<div class="ui small orange button" type="button" ng-click="hideWithDelay()">Hide Modal with delay</div>
+	</div>
+</form>
