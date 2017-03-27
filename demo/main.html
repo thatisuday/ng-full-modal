@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html ng-app="demo">
+	<head>
+		<title>ng-full-modal</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+		<!-- Local Dependencies -->
+		<!-- <script src="../bower_components/angular/angular.js"></script>
+		<script src="../bower_components/angular-animate/angular-animate.js"></script> -->
+
+		<!-- Dependencies -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular-animate.js"></script>
+		<script src="https://rawgit.com/IamAdamJowett/angular-click-outside/master/clickoutside.directive.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700" rel="stylesheet" />
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.css" rel="stylesheet" />
+
+		<!-- Module files-->
+		<script src="../dist/ng-full-modal.min.js"></script>
+		<link href="../dist/ng-full-modal.min.css" rel="stylesheet"/>
+
+		<style type="text/css">
+			/*.nfm-container .nfm-modal{
+				background-color: #fff;
+				padding: 20px 35px;
+			}*/
+		</style>
+	</head>
+	<body>
+		
+		<h1><a href="https://github.com/thatisuday/ng-full-modal" style="text-decoration:none; color:#333;">ng-full-modal</a></h1>
+
+		<div ng-controller="main">
+			<button class="ui small green button" ng-click="showModal()">Show Modal</button>
+		</div>
+
+		<script>
+			angular
+			.module('demo', ['ngAnimate', 'thatisuday.ng-full-modal'])
+			.config(function(_nfmProvider){
+				_nfmProvider.set({
+					templateHost : './templates/',
+					bodyClass : 'modal-on',
+					transitionDuration: '0.3s'
+				});
+			})
+			.controller('main', function($scope, nfm){
+				var user = {name: 'Uday Hiwarale'};
+
+				var formModal = new nfm({
+					templateFile : 'form-modal.html',
+					inject : {
+						user : user,
+					},
+					controller : ['$scope', '$element', 'hide', 'user', function($scope, $element, hide, user){
+						$scope.msg = "Hello World";
+						$scope.formData = user || {};
+
+						$scope.done = function(){
+							hide($scope.formData);
+						};
+
+						$scope.hideModal = function(){
+							hide(null);
+						};
+
+						$scope.hideWithDelay = function(){
+							hide(null, 2000);
+						};
+					}]
+				});
+
+				$scope.showModal = function(){
+					formModal.show().then(function(modal){
+						console.log('modal...', modal);
+
+						modal.hiding.then(function(result){
+							console.log('hiding...', 'result: ', result);
+						});
+
+						modal.hidden.then(function(result){
+							console.log('hidden...', 'result: ', result);
+						});
+					});
+				};
+			});
+		</script>
+	</body>
+</html>
