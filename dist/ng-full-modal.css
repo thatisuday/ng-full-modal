@@ -58,8 +58,8 @@
     padding: 20px 30px; }
   @media screen and (max-width: 500px) {
     .nfm-container {
-      background-color: #fff; }
+      background-color: #fff !important; }
       .nfm-container > .nfm-close {
-        color: #333; }
+        color: #333 !important; }
       .nfm-container > .nfm-modal {
-        width: 100%; } }
+        width: 100% !important; } }

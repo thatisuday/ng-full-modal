@@ -61,14 +61,14 @@
 	}
 
 	@media screen and (max-width : $screen_sphone){
-		background-color: #fff;
+		background-color: #fff !important;
 
 		>.nfm-close{
-			color: #333;
+			color: #333 !important;
 		}
 
 		>.nfm-modal{
-			width: 100%;
+			width: 100% !important;
 		}
 	}
 }
