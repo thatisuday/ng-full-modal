@@ -6,7 +6,7 @@ Probably the best angular responsive modal service...
 
 ***
 
-## install 
+## Install 
 ```
 npm install --save ng-full-modal
 bower install --save ng-full-modal
@@ -16,13 +16,14 @@ bower install --save ng-full-modal
 
 ## Dependencies
 
-- angular
-- angular-animate
-- click outside
+- angular (js)
+- angular-animate (js)
+- click-outside (js)
+- ng-full-modal.min.js, ng-full-modal.min.css
 
 ***
 
-## include
+## Include App
 ```
 angular
 .module('yourApp', ['ngAnimate', 'thatisuday.ng-full-modal'])
@@ -30,7 +31,7 @@ angular
 
 ***
 
-## options
+## Options
 ```
 closeDelay          :   0,                  //  Delay in closing the modal (in milliseconds)
 templateHost        :   null,               //  Template files will be served from the location, e.g. http://localhost/templates/
@@ -43,7 +44,7 @@ backdrop            :   'rgba(0,0,0,0.9)'   //  backdrop color of modal containe
 
 ***
 
-## config
+## Config Plugin
 ```
 angular.module('yourApp')
 .config(function(_nfmProvider){
@@ -57,16 +58,17 @@ angular.module('yourApp')
 
 ***
 
-## service
+## Service (how o use?)
 ```
 angular.module('yourApp'),
 .controller('main', function($scope, nfm){
 	var user = {name: 'Uday Hiwarale'};
-
+	
+	// create new instace of modal
 	var formModal = new nfm({
-    // template : '<div></div>',
-    // templateUrl : 'http://127.0.0.1:3000/demo/templates/form-modal.html',
-		templateFile : 'form-modal.html',
+		// template : '<div><h1>Hello World! I am inside modal...</h1></div>',
+		// templateUrl : 'http://127.0.0.1:3000/demo/templates/form-modal.html',
+		templateFile : 'form-modal.html', // will append to `templateHost` to make full url
 		inject : {
 			user : user,
 		},
@@ -75,7 +77,7 @@ angular.module('yourApp'),
 			$scope.formData = user || {};
 
 			$scope.done = function(){
-				hide($scope.formData);
+				hide($scope.formData); // pass result
 			};
 
 			$scope.hideModal = function(){
@@ -83,7 +85,7 @@ angular.module('yourApp'),
 			};
 
 			$scope.hideWithDelay = function(){
-				hide(null, 2000);
+				hide(null, 2000); // add 2s delay, override `closeDelay`
 			};
 		}]
 	});
