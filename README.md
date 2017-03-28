@@ -1,4 +1,4 @@
-# ng-full-modal
+# Angular Full Modal Service
 Probably the best angular responsive modal service...
 
 **[demo](https://rawgit.com/thatisuday/ng-full-modal/master/demo/main.html)**
@@ -58,7 +58,7 @@ angular.module('yourApp')
 
 ***
 
-## Service (how o use?)
+## Service (how to use?)
 ```
 angular.module('yourApp'),
 .controller('main', function($scope, nfm){
