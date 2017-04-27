@@ -42,7 +42,7 @@ angular.module('thatisuday.ng-full-modal').factory('nfm', ['_nfm', '$rootScope',
 			_classCallCheck(this, nfm);
 
 			// set modal service configurations
-			this.conf = angular.extend(_nfm, conf);
+			this.conf = angular.extend({}, _nfm, conf);
 
 			// set modal open/close state
 			this._stateOpen = false;

@@ -17,7 +17,7 @@ function(_nfm, $rootScope, $animate, $document, $compile, $controller, $http, $q
 
 		constructor(conf){
 			// set modal service configurations
-			this.conf = angular.extend(_nfm, conf);
+			this.conf = angular.extend({}, _nfm, conf);
 
 			// set modal open/close state
 			this._stateOpen = false;
