@@ -130,7 +130,7 @@ function(_nfm, $rootScope, $animate, $document, $compile, $controller, $http, $q
 							}"
 						>
 							<div class="nfm-close" ng-click="__hide__()"></div>
-							<div class="nfm-modal" click-outside="__bg_hide__()" ng-style="{'width' : modalWidth}">
+							<div class="nfm-modal modal-name-${this.conf.name}" click-outside="__bg_hide__()" ng-style="{'width' : modalWidth}">
 								${template}
 							</div>
 						</div>
