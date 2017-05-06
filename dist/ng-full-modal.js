@@ -181,10 +181,11 @@ angular.module('thatisuday.ng-full-modal').factory('nfm', ['_nfm', '$rootScope',
 				return this._getTemplate().then(function (template) {
 					var _template = '\n\t\t\t\t\t\t<div\n\t\t\t\t\t\t\tclass="nfm-container"\n\t\t\t\t\t\t\tng-style="{\n\t\t\t\t\t\t\t\t\'transition-duration\' : transitionDuration,\n\t\t\t\t\t\t\t\t\'background-color\' : backdrop\n\t\t\t\t\t\t\t}"\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\t<div class="nfm-close" ng-click="__hide__()"></div>\n\t\t\t\t\t\t\t<div class="nfm-modal modal-name-' + _this.conf.name + '" click-outside="__bg_hide__()" ng-style="{\'width\' : modalWidth}">\n\t\t\t\t\t\t\t\t' + template + '\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t';
 
-					_this.conf.$element = $compile(_template)(_this._getScope());
-
 					// bind controller to scope
 					_this._bindCtrlToScope();
+
+					// compile
+					_this.conf.$element = $compile(_template)(_this._getScope());
 				}, function (err) {
 					console.warn('Failed to load template for modal.');
 				});

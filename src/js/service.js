@@ -136,10 +136,11 @@ function(_nfm, $rootScope, $animate, $document, $compile, $controller, $http, $q
 						</div>
 					`;
 
-					this.conf.$element = $compile(_template)(this._getScope());
-
 					// bind controller to scope
 					this._bindCtrlToScope();
+
+					// compile
+					this.conf.$element = $compile(_template)(this._getScope());
 				},
 				(err) => {
 					console.warn('Failed to load template for modal.');
