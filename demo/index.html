@@ -53,8 +53,9 @@
 					inject : {
 						user : user,
 					},
-					controller : ['$scope', '$element', 'hide', 'user', function($scope, $element, hide, user){
+					controller : ['$scope', '$element', 'hide', 'user', 'di', function($scope, $element, hide, user, di){
 						$scope.msg = "Hello World";
+						console.log(di);
 						$scope.formData = user || {};
 
 						$scope.done = function(){
@@ -72,7 +73,7 @@
 				});
 
 				$scope.showModal = function(){
-					formModal.show().then(function(modal){
+					formModal.show({di: 'Dynamic Injectable...'}).then(function(modal){
 						console.log('modal...', modal);
 
 						modal.hiding.then(function(result){

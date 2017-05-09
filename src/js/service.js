@@ -97,8 +97,9 @@ function(_nfm, $rootScope, $animate, $document, $compile, $controller, $http, $q
 		}
 
 		// set injectable variable
-		_setInjectable(inj){
-			this.conf._injectables = inj;
+		_setInjectable(injectables){
+			this.conf._injectables = this.conf._injectables || {};
+			angular.extend(this.conf._injectables, injectables);
 		}
 
 		// get controller injectable dependencies
@@ -249,7 +250,12 @@ function(_nfm, $rootScope, $animate, $document, $compile, $controller, $http, $q
 
 
 		// show (launch) modal
-		show(){
+		show(injectables){
+			// set dynamic injectables
+			if(injectables && typeof injectables == 'object'){
+				this._setInjectable(injectables);
+			}
+
 			// set promises
 			this._setPromises();
 
