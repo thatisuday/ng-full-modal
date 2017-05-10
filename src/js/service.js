@@ -124,7 +124,7 @@ function(_nfm, $rootScope, $animate, $document, $compile, $controller, $http, $q
 				(template) => {
 					let _template = `
 						<div
-							class="nfm-container"
+							class="nfm-container nfm-${this.conf.name}"
 							ng-style="{
 								'transition-duration' : transitionDuration,
 								'background-color' : backdrop
